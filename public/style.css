@@ -47,6 +47,7 @@ body {
     display: flex;
     justify-content: space-between;
   }
+
   .btn-primary {
     background-color: #ff9d00; /* Primary color */
     color: #fff; /* Text color */
@@ -75,3 +76,13 @@ body {
     background-color: #424eef; /* Darker shade for hover */
   }
   
+  @media (max-width: 600px) {
+    #timetable-list {
+        width: 100%; /* Full width on smaller screens */
+    }
+    
+    .task {
+        width: 90%; /* Adjusts width for mobile view */
+    }
+  }
+
