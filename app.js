@@ -23,6 +23,7 @@ app.post('/add', (req, res) => {
     day,
     time,
     status: "scheduled"
+    
   };
   timetable.push(newTask);
   res.redirect('/');
@@ -34,6 +35,7 @@ app.post('/update', (req, res) => {
   if (task) task.status = status;
   res.redirect('/');
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
