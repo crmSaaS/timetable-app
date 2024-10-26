@@ -15,6 +15,7 @@ body {
     display: flex;
     justify-content: center;
     margin: 20px 0;
+    
   }
   
   #add-form input, #add-form button {
@@ -45,5 +46,32 @@ body {
   .task form {
     display: flex;
     justify-content: space-between;
+  }
+  .btn-primary {
+    background-color: #ff9d00; /* Primary color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ff9d00;; /* Darker shade for hover */
+  }
+  
+  .btn-secondary {
+    background-color: #424eef; /* Secondary color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #424eef; /* Darker shade for hover */
   }
   
