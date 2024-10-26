@@ -13,7 +13,8 @@
   <form id="add-form" method="POST" action="/add">
     <input type="text" name="subject" placeholder="Subject" required>
     <input type="text" name="day" placeholder="Day (e.g., Monday)" required>
-    <input type="time" name="time" required>
+    <input type="text" name="time" placeholder="HH:MM" required aria-label="Time in HH:MM format">
+
     <button type="submit" class="btn-primary">Add Task</button>
   </form>
 
@@ -31,7 +32,7 @@
             <option value="completed" <%= task.status === 'completed' ? 'selected' : '' %>>Completed</option>
             <option value="canceled" <%= task.status === 'canceled' ? 'selected' : '' %>>Canceled</option>
           </select>
-          <button type="submit" class="btn-secondary">Update Status</button>
+          <button type="submit" class="b-secondary">Update Status</button>
         </form>
       </div>
     <% }) %>
