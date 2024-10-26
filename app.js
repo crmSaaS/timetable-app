@@ -11,12 +11,28 @@ let timetable = [
   { id: 2, subject: "English", day: "Tuesday", time: "11:00 AM", status: "scheduled" }
 ];
 
+const validDays = new Set([
+  "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday",
+  "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+]);
+
 app.get('/', (req, res) => {
   res.render('index', { timetable });
 });
 
 app.post('/add', (req, res) => {
   const { subject, day, time } = req.body;
+
+  if (!validDays.has(day)) {
+    return res.status(400).send("Invalid day input");
+  }
+
+  const duplicate = timetable.some(task => task.day === day && task.subject === subject);
+  
+  if (duplicate) {
+    return res.send("Duplicate data: The same subject is scheduled on the same day.");
+  }
+
   const newTask = {
     id: timetable.length + 1,
     subject,
@@ -25,10 +41,14 @@ app.post('/add', (req, res) => {
     status: "scheduled"
   
   };
+
+
+
   if (
     newTask.day === "monday" || newTask.day ==="tuesday" || newTask.day ==="wednesday"||newTask.day === "thursday" || newTask.day ==="friday" || newTask.day ==="saturday"||newTask.day ==="sunday" || newTask.day === "Monday" || newTask.day ==="Tuesday" || newTask.day ==="Wednesday"||newTask.day === "Thursday" || newTask.day ==="Friday" || newTask.day ==="Saturday"||newTask.day ==="Sunday"  
   ){
       
+
   timetable.push(newTask);
 
 
@@ -42,7 +62,11 @@ app.post('/add', (req, res) => {
 app.post('/update', (req, res) => {
   const { id, status } = req.body;
   const task = timetable.find(task => task.id == id);
-  if (task) task.status = status;
+  
+  if (task) {
+    task.status = status;
+  }
+  
   res.redirect('/');
 });
 
