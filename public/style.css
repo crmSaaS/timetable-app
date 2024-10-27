@@ -86,3 +86,7 @@ body {
     }
   }
 
+  #scheduled12:hover{
+    background-color: #424eef;
+    color: #fff;
+  }
