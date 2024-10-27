@@ -28,7 +28,7 @@
         <p><strong>Status:</strong> <%= task.status %></p>
         <form method="POST" action="/update ">
           <input type="hidden" name="id" value="<%= task.id %>">
-          <select name="status">
+          <select name="status" id="scheduled12">
             <option value="scheduled" <%= task.status === 'scheduled' ? 'selected' : '' %>>Scheduled</option>
             <option value="completed" <%= task.status === 'completed' ? 'selected' : '' %>>Completed</option>
             <option value="canceled" <%= task.status === 'canceled' ? 'selected' : '' %>>Canceled</option>
