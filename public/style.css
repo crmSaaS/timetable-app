@@ -9,6 +9,8 @@ body {
   h1 {
     text-align: center;
     color: #333;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
   }
   
   #add-form {
@@ -56,6 +58,8 @@ body {
     padding: 10px 15px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
   }
   
   .btn-primary:hover {
@@ -70,6 +74,8 @@ body {
     padding: 10px 15px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
   }
   
   .btn-secondary:hover {
