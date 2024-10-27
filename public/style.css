@@ -9,12 +9,15 @@ body {
   h1 {
     text-align: center;
     color: #333;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
   }
   
   #add-form {
     display: flex;
     justify-content: center;
     margin: 20px 0;
+    
   }
   
   #add-form input, #add-form button {
@@ -26,6 +29,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
   
   .task {
@@ -45,6 +49,39 @@ body {
     display: flex;
     justify-content: space-between;
   }
+
+  .btn-primary {
+    background-color: #ff9d00; /* Primary color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ff9d00;; /* Darker shade for hover */
+  }
+  
+  .btn-secondary {
+    background-color: #424eef; /* Secondary color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #424eef; /* Darker shade for hover */
+  }
+  
   @media (max-width: 600px) {
     #timetable-list {
         width: 100%; /* Full width on smaller screens */
@@ -53,4 +90,9 @@ body {
     .task {
         width: 90%; /* Adjusts width for mobile view */
     }
+  }
+
+  #scheduled12:hover{
+    background-color: #424eef;
+    color: #fff;
   }
