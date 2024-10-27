@@ -37,6 +37,7 @@ app.post('/add', (req, res) => {
   }
 
   const newTask = {
+    id : Date.now(),
     id: timetable.length + 1,
     subject,
     day,

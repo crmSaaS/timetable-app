@@ -30,8 +30,12 @@
             <option value="completed" <%= task.status === 'completed' ? 'selected' : '' %>>Completed</option>
             <option value="canceled" <%= task.status === 'canceled' ? 'selected' : '' %>>Canceled</option>
           </select>
-          <button type="submit" class="btn-secondary" onclick="alert('Message updated successfully!')">Update Status</button>
-          <button type="submit" class="btn-secondary" onclick="alert('Task deleted!')">Delete</button>
+
+       
+
+          <button type="submit " class="btn-secondary" onclick="alert('Message updated successfully!')">Update Status</button>
+          <button type="submit"  class="btn-secondary" onclick="alert('Message delete !')" >delete</button>
+
         </form>
       </div>
     <% }) %>
