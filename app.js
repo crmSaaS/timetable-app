@@ -12,7 +12,7 @@ let timetable = [
 ];
 
 const validDays = new Set([
-  "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday",
+  "monday", "tuesday", "wednesreday", "thursday", "friday", "saturday", "sunday",
   "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
 ]);
 
@@ -22,6 +22,8 @@ app.get('/', (req, res) => {
 
 app.post('/add', (req, res) => {
   const { subject, day, time } = req.body;
+
+ 
 
   if (!validDays.has(day)) {
     return res.status(400).send("Invalid day input");
@@ -34,12 +36,13 @@ app.post('/add', (req, res) => {
   }
 
   const newTask = {
+    id : Date.now(),
     id: timetable.length + 1,
     subject,
     day,
     time,
     status: "scheduled"
-  
+
   };
 
 
@@ -66,6 +69,7 @@ app.post('/update', (req, res) => {
   if (task) {
     task.status = status;
   }
+  
   
   res.redirect('/');
 });
