@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -7,8 +8,8 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 let timetable = [
-  { id: 1, subject: "Math", day: "Monday", time: "10:00 AM", status: "scheduled" },
-  { id: 2, subject: "English", day: "Tuesday", time: "11:00 AM", status: "scheduled" }
+  { id: uuidv4(), subject: "Math", day: "Monday", time: "10:00 AM", status: "scheduled" },
+  { id: uuidv4(), subject: "English", day: "Tuesday", time: "11:00 AM", status: "scheduled" }
 ];
 
 const validDays = new Set([
@@ -34,24 +35,17 @@ app.post('/add', (req, res) => {
   }
 
   const newTask = {
-    id: timetable.length + 1,
+    id: uuidv4(),
     subject,
     day,
     time,
     status: "scheduled"
-
   };
-
-
 
   if (
     newTask.day === "monday" || newTask.day ==="tuesday" || newTask.day ==="wednesday"||newTask.day === "thursday" || newTask.day ==="friday" || newTask.day ==="saturday"||newTask.day ==="sunday" || newTask.day === "Monday" || newTask.day ==="Tuesday" || newTask.day ==="Wednesday"||newTask.day === "Thursday" || newTask.day ==="Friday" || newTask.day ==="Saturday"||newTask.day ==="Sunday"  
   ){
-      
-
-  timetable.push(newTask);
-
-
+    timetable.push(newTask);
   }
   else{
     res.status(400).send("Invalid day input");
@@ -61,7 +55,7 @@ app.post('/add', (req, res) => {
 
 app.post('/update', (req, res) => {
   const { id, status } = req.body;
-  const task = timetable.find(task => task.id == id);
+  const task = timetable.find(task => task.id === id);
   
   if (task) {
     task.status = status;
@@ -69,7 +63,6 @@ app.post('/update', (req, res) => {
   
   res.redirect('/');
 });
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
