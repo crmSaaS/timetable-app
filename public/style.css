@@ -91,8 +91,15 @@ body {
         width: 90%; /* Adjusts width for mobile view */
     }
   }
-
-  #scheduled12:hover{
-    background-color: #424eef;
-    color: #fff;
+  .task {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
   }
+  
+  .task.active {
+    background-color: #e0ffe0; /* Light green for active tasks */
+    border-color: #4caf50; /* Darker green border */
+  }
+  
+ 
