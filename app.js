@@ -12,7 +12,7 @@ let timetable = [
 ];
 
 const validDays = new Set([
-  "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday",
+  "monday", "tuesday", "wednesreday", "thursday", "friday", "saturday", "sunday",
   "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
 ]);
 
@@ -69,6 +69,7 @@ app.post('/update', (req, res) => {
   if (task) {
     task.status = status;
   }
+  
   
   res.redirect('/');
 });
