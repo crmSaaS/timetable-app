@@ -39,7 +39,7 @@ app.post('/add', (req, res) => {
     day,
     time,
     status: "scheduled"
-  
+
   };
 
 
