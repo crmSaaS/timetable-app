@@ -35,7 +35,7 @@ app.post('/add', (req, res) => {
   }
 
   const newTask = {
-    id: timetable.length + 1,
+    id: Date.now(),
     subject,
     day,
     time,
@@ -56,6 +56,9 @@ app.post('/update', (req, res) => {
   } else {
     res.status(404).json({ message: 'Task not found' });
   }
+  
+  // The following line was removed because it's unnecessary to redirect after an AJAX call
+  // res.redirect('/'); 
 });
 
 const PORT = process.env.PORT || 3000;
