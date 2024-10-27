@@ -9,13 +9,14 @@
 </head>
 <body>
   <h1>Weekly Timetable</h1>
-  
+
+
   <form id="add-form" method="POST" action="/add">
     <input type="text" name="subject" placeholder="Subject" required>
     <input type="text" name="day" placeholder="Day (e.g., Monday)" required>
     <input type="text" name="time" placeholder="HH:MM" required aria-label="Time in HH:MM format">
 
-    <button type="submit" onclick="alert('Task added successfully!')" class="btn-primary">Add Task</button
+    <button type="submit" onclick="alert('Task added successfully!')" class="btn-primary">Add Task</button>
   </form>
 
   <div id="timetable-list">
@@ -25,14 +26,14 @@
         <p><strong>Day:</strong> <%= task.day %></p>
         <p><strong>Time:</strong> <%= task.time %></p>
         <p><strong>Status:</strong> <%= task.status %></p>
-        <form method="POST" action="/update">
+        <form method="POST" action="/update ">
           <input type="hidden" name="id" value="<%= task.id %>">
           <select name="status">
             <option value="scheduled" <%= task.status === 'scheduled' ? 'selected' : '' %>>Scheduled</option>
             <option value="completed" <%= task.status === 'completed' ? 'selected' : '' %>>Completed</option>
             <option value="canceled" <%= task.status === 'canceled' ? 'selected' : '' %>>Canceled</option>
           </select>
-          <button type="submit" class="btn-secondary">Update Status</button>
+          <button type="submit " class="btn-secondary" onclick="alert('Message updated successfully!')">Update Status</button>
         </form>
       </div>
     <% }) %>
