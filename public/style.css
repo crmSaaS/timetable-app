@@ -1,67 +1,93 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
-  margin: 0;
-  padding: 0 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0 20px;
 }
 
 h1 {
-  text-align: center;
-  color: #333;
+    text-align: center;
+    color: #333;
+    font-weight: bold; /* Ensured bold font weight for h1 */
 }
 
 #add-form {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
 }
 
 #add-form input, #add-form button {
-  margin: 0 5px;
-  padding: 8px;
+    margin: 0 5px;
+    padding: 8px;
 }
 
 #timetable-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+    width: 100%; /* Full width for the timetable list */
 }
 
 .task {
-  background-color: #fff;
-  padding: 15px;
-  margin: 10px 0;
-  width: 60%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    width: 60%; /* Consistent width for tasks */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 .task p {
-  margin: 5px 0;
+    margin: 5px 0;
+}
+
+.task form {
+    display: flex;
+    justify-content: space-between;
 }
 
 .btn-primary {
-  background-color: #ff9d00;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    background-color: #ff9d00; /* Primary color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
 }
 
 .btn-primary:hover {
-  background-color: #ff7800;
+    background-color: #ff7800; /* Darker shade for hover */
+}
+
+.btn-secondary {
+    background-color: #424eef; /* Secondary color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.btn-secondary:hover {
+    background-color: #3b3fd2; /* Darker shade for hover */
 }
 
 @media (max-width: 600px) {
-  #timetable-list {
-      width: 100%;
-  }
-  
-  .task {
-      width: 90%;
-  }
+    #timetable-list {
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .task {
+        width: 90%; /* Adjusts width for mobile view */
+    }
+}
+
+.task.active {
+    background-color: #e0ffe0; /* Light green for active tasks */
+    border-color: #4caf50; /* Darker green border */
 }
