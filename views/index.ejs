@@ -23,7 +23,7 @@
       <div class="task">
         <p><strong>Subject:</strong> <%= task.subject %></p>
         <p><strong>Day:</strong> <%= task.day %></p>
-        <p><strong>Time:</strong> <%= task.time %></p>
+        <p><strong>Time:</strong> <%= task.time %></p>text
         <p><strong>Status:</strong> <%= task.status %></p>
         <form method="POST" action="/update ">
           <input type="hidden" name="id" value="<%= task.id %>">
@@ -33,6 +33,7 @@
             <option value="canceled" <%= task.status === 'canceled' ? 'selected' : '' %>>Canceled</option>
           </select>
           <button type="submit " class="btn-secondary" onclick="alert('Message updated successfully!')">Update Status</button>
+          <button type="submit"  class="btn-secondary" onclick="alert('Message updated successfully!')" >delete</button>
         </form>
       </div>
     <% }) %>
