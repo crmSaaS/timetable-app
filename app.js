@@ -11,9 +11,9 @@ let timetable = [
   { id: 2, subject: "English", day: "Tuesday", time: "11:00 AM", status: "scheduled" }
 ];
 
+// Define valid days in a case-insensitive manner
 const validDays = new Set([
-  "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday",
-  "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+  "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"
 ]);
 
 app.get('/', (req, res) => {
@@ -23,39 +23,27 @@ app.get('/', (req, res) => {
 app.post('/add', (req, res) => {
   const { subject, day, time } = req.body;
 
-  if (!validDays.has(day)) {
+  // Convert day input to lowercase for case-insensitive validation
+  if (!validDays.has(day.toLowerCase())) {
     return res.status(400).send("Invalid day input");
   }
 
+  // Check for duplicate entries
   const duplicate = timetable.some(task => task.day === day && task.subject === subject);
-  
   if (duplicate) {
-    return res.send("Duplicate data: The same subject is scheduled on the same day.");
+    return res.status(400).send("Duplicate data: The same subject is scheduled on the same day.");
   }
 
+  // Create and add new task if validation passed
   const newTask = {
     id: timetable.length + 1,
     subject,
     day,
     time,
     status: "scheduled"
-
   };
 
-
-
-  if (
-    newTask.day === "monday" || newTask.day ==="tuesday" || newTask.day ==="wednesday"||newTask.day === "thursday" || newTask.day ==="friday" || newTask.day ==="saturday"||newTask.day ==="sunday" || newTask.day === "Monday" || newTask.day ==="Tuesday" || newTask.day ==="Wednesday"||newTask.day === "Thursday" || newTask.day ==="Friday" || newTask.day ==="Saturday"||newTask.day ==="Sunday"  
-  ){
-      
-
   timetable.push(newTask);
-
-
-  }
-  else{
-    res.status(400).send("Invalid day input");
-  }
   res.redirect('/');
 });
 
@@ -69,7 +57,6 @@ app.post('/update', (req, res) => {
   
   res.redirect('/');
 });
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
