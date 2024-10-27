@@ -91,6 +91,7 @@ body {
         width: 90%; /* Adjusts width for mobile view */
     }
   }
+
   .task {
     padding: 10px;
     border: 1px solid #ccc;
@@ -102,4 +103,3 @@ body {
     border-color: #4caf50; /* Darker green border */
   }
   
- 
