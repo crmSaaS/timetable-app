@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "subject": "Communication",
+    "day": "monday",
+    "time": "12:12",
+    "status": "scheduled"
+  }
+]
