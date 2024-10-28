@@ -17,12 +17,14 @@ body {
     display: flex;
     justify-content: center;
     margin: 20px 0;
+
     
   }
   
   #add-form input, #add-form button {
     margin: 0 5px;
     padding: 8px;
+    font-size: 16px;
   }
   
   #timetable-list {

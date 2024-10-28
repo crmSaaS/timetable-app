@@ -12,7 +12,7 @@ let timetable = [
 ];
 
 const validDays = new Set([
-  "monday", "tuesday", "wednesreday", "thursday", "friday", "saturday", "sunday",
+  "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday",
   "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
 ]);
 
@@ -38,20 +38,20 @@ app.post('/add', (req, res) => {
 
   const newTask = {
     id : Date.now(),
-    id: timetable.length + 1,
+   
     subject,
     day,
     time,
     status: "scheduled"
 
   };
-
-
+ 
 
   if (
     newTask.day === "monday" || newTask.day ==="tuesday" || newTask.day ==="wednesday"||newTask.day === "thursday" || newTask.day ==="friday" || newTask.day ==="saturday"||newTask.day ==="sunday" || newTask.day === "Monday" || newTask.day ==="Tuesday" || newTask.day ==="Wednesday"||newTask.day === "Thursday" || newTask.day ==="Friday" || newTask.day ==="Saturday"||newTask.day ==="Sunday"  
   ){
-      
+
+   
 
   timetable.push(newTask);
 
