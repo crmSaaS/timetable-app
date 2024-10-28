@@ -1,92 +1,121 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    margin: 0;
-    padding: 0 20px;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+#add-form {
+  display: flex;
+  flex-direction: column; /* Stack inputs vertically */
+  align-items: center;
+  margin: 20px 0;
+}
+
+#add-form input, #add-form button {
+  margin: 5px 0; /* Space vertically */
+  padding: 10px; /* Increased padding for better touch targets */
+  font-size: 16px;
+  width: 100%; /* Full width on mobile */
+  max-width: 300px; /* Max width for better control */
+}
+
+#timetable-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.task {
+  background-color: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  width: 90%; /* Full width for better responsiveness */
+  max-width: 600px; /* Max width to maintain layout */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: transform 0.2s;
+}
+
+.task:hover {
+  transform: scale(1.02); /* Slightly enlarges on hover */
+}
+
+.task p {
+  margin: 5px 0;
+}
+
+.task form {
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+  align-items: center;
+}
+
+.btn-primary, .btn-secondary {
+  width: 100%; /* Full width for buttons */
+  max-width: 300px; /* Max width for buttons */
+  padding: 10px; /* Consistent padding */
+}
+
+.btn-primary {
+  background-color: #ff9d00; /* Primary color */
+  color: #fff; /* Text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #cc7a00; /* Darker shade for hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.btn-secondary {
+  background-color: #424eef; /* Secondary color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+.btn-secondary:hover {
+  background-color: #353fed; /* Darker shade for hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+@media (max-width: 600px) {
   #add-form {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-    
+      margin: 10px 0; /* Reduce margin for mobile */
   }
-  
+
   #add-form input, #add-form button {
-    margin: 0 5px;
-    padding: 8px;
+      font-size: 14px; /* Slightly smaller font size */
+      padding: 8px; /* Adjust padding */
   }
-  
-  #timetable-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
+
   .task {
-    background-color: #fff;
-    padding: 15px;
-    margin: 10px 0;
-    width: 60%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+      width: 95%; /* Full width with a slight margin */
+      padding: 10px; /* Consistent padding for mobile */
   }
-  
-  .task p {
-    margin: 5px 0;
-  }
-  
+
   .task form {
-    display: flex;
-    justify-content: space-between;
+      flex-direction: column; /* Stack form elements vertically */
+      width: 100%; /* Full width for form */
   }
-
-  .btn-primary {
-    background-color: #ff9d00; /* Primary color */
-    color: #fff; /* Text color */
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .btn-primary:hover {
-    background-color: #ff9d00;; /* Darker shade for hover */
-  }
-  
-  .btn-secondary {
-    background-color: #424eef; /* Secondary color */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .btn-secondary:hover {
-    background-color: #424eef; /* Darker shade for hover */
-  }
-  
-  @media (max-width: 600px) {
-    #timetable-list {
-        width: 100%; /* Full width on smaller screens */
-    }
-    
-    .task {
-        width: 90%; /* Adjusts width for mobile view */
-    }
-  }
-
-  #scheduled12:hover{
-    background-color: #424eef;
-    color: #fff;
-  }
+}
