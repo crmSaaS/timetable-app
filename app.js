@@ -84,7 +84,7 @@ app.post('/add', (req, res) => {
   });
 
   res.redirect('/');
-});
+}});
 
 app.post('/update', (req, res) => {
   const { id, status } = req.body;
