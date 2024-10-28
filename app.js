@@ -47,6 +47,8 @@ app.get('/', (req, res) => {
 app.post('/add', (req, res) => {
   const { subject, day, time } = req.body;
 
+ 
+
   if (!validDays.has(day)) {
     return res.status(400).send("Invalid day input");
   }
@@ -58,12 +60,19 @@ app.post('/add', (req, res) => {
   }
 
   const newTask = {
-    id: timetable.length + 1,
+    id : Date.now(),
     subject,
     day,
     time,
     status: "scheduled"
   };
+
+
+
+  if (
+    newTask.day === "monday" || newTask.day ==="tuesday" || newTask.day ==="wednesday"||newTask.day === "thursday" || newTask.day ==="friday" || newTask.day ==="saturday"||newTask.day ==="sunday" || newTask.day === "Monday" || newTask.day ==="Tuesday" || newTask.day ==="Wednesday"||newTask.day === "Thursday" || newTask.day ==="Friday" || newTask.day ==="Saturday"||newTask.day ==="Sunday"  
+  ){
+      
 
   timetable.push(newTask);
 
@@ -91,6 +100,7 @@ app.post('/update', (req, res) => {
       }
     });
   }
+  
   
   res.redirect('/');
 });

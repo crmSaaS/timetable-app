@@ -5,41 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Timetable Manager</title>
   <link rel="stylesheet" href="/style.css">
-
 </head>
 <body>
   <h1>Weekly Timetable</h1>
-
 
   <form id="add-form" method="POST" action="/add">
     <input type="text" name="subject" placeholder="Subject" required>
     <input type="text" name="day" placeholder="Day (e.g., Monday)" required>
     <input type="text" name="time" placeholder="HH:MM" required aria-label="Time in HH:MM format">
-
-    <button type="submit" onclick="alert('Task added successfully!')" class="btn-primary">Add Task</button>
+    <button type="submit" id="ritesh" class="btn-primary">Add Task</button>
   </form>
 
   <div id="timetable-list">
     <% timetable.forEach(task => { %>
-      <div class="task">
+      <div class="task <%= task.status === 'scheduled' ? 'active' : '' %>" data-day="<%= task.day %>">
         <p><strong>Subject:</strong> <%= task.subject %></p>
         <p><strong>Day:</strong> <%= task.day %></p>
         <p><strong>Time:</strong> <%= task.time %></p>
         <p><strong>Status:</strong> <%= task.status %></p>
-        <form method="POST" action="/update ">
+        <form method="POST" action="/update">
           <input type="hidden" name="id" value="<%= task.id %>">
           <select name="status">
             <option value="scheduled" <%= task.status === 'scheduled' ? 'selected' : '' %>>Scheduled</option>
             <option value="completed" <%= task.status === 'completed' ? 'selected' : '' %>>Completed</option>
             <option value="canceled" <%= task.status === 'canceled' ? 'selected' : '' %>>Canceled</option>
           </select>
+
+       
+<br>
           <button type="submit " class="btn-secondary" onclick="alert('Message updated successfully!')">Update Status</button>
+          <br>
+          <button type="submit"  class="btn-secondary" onclick="alert('Message delete !')" >delete</button>
+
         </form>
       </div>
     <% }) %>
   </div>
- 
 
   <script src="/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentDay = new Date().toLocaleString('en-US', { weekday: 'long' }); // Get current day name
+      const tasks = document.querySelectorAll('.task');
+
+      tasks.forEach(task => {
+        if (task.getAttribute('data-day') === currentDay) {
+          task.style.backgroundColor = 'yellow'; // Highlight the task
+        }
+      });
+    });
+  </script>
 </body>
 </html>
