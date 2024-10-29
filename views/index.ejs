@@ -58,6 +58,14 @@
         }
       });
     });
+    
+    const form = document.getElementById('timetableForm');
+    const submitButton = document.getElementById('submitButton');
+
+    form.addEventListener('submit', (event) => {
+      submitButton.disabled = true;
+    });
+ 
   </script>
 </body>
 </html>
