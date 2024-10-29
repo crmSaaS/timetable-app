@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "id": 1730182056744,
+    "subject": "Science",
+    "day": "Monday",
+    "time": "12:55",
+    "status": "scheduled"
+  }
+]
