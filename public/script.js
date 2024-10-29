@@ -10,3 +10,12 @@ document.getElementById('add-form').addEventListener('submit', function(event) {
     // Optionally prevent the default form submission for testing
     // event.preventDefault();
 });
+
+document.querySelectorAll('.delete-button').forEach(button => {
+    button.addEventListener('click', function(event) {
+        const confirmed = confirm("Are you sure you want to delete this task?");
+        if (!confirmed) {
+            event.preventDefault(); // Prevent form submission if not confirmed
+        }
+    });
+});
