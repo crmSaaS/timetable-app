@@ -8,9 +8,18 @@
 </head>
 <body>
   <h1>Weekly Timetable</h1>
-
   <form id="add-form" method="POST" action="/add">
-    <input type="text" name="subject" placeholder="Subject" required>
+    <label for="subject">Subject:</label>
+    <select name="subject" id="subject" required>
+        <option value="" disabled selected>Select a subject</option>
+        <option value="Hindi">Hindi</option>
+        <option value="English">English</option>
+        <option value="Mathematics">Mathematics</option>
+        <option value="Science">Science</option>
+        <option value="History">Social Science</option>
+        <option value="History">Sanskrit</option>
+        <option value="History">Drawing</option>
+    </select>
     
     <label for="day">Day:</label>
     <select name="day" id="day" required>
@@ -28,6 +37,8 @@
     
     <button type="submit" id="ritesh" class="btn-primary">Add Task</button>
 </form>
+
+  
 
 
   <div id="timetable-list">
