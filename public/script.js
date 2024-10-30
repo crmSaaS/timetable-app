@@ -1,12 +1,16 @@
-// Add any specific JavaScript code here if needed in the future
-console.log("task added");
-
-// Set the button text using innerHTML
-document.getElementById('ritesh').innerHTML = "Add to Timetable";
-
-// Optional: Add an event listener for form submission
-document.getElementById('add-form').addEventListener('submit', function(event) {
-    alert('Task added successfully!');
-    // Optionally prevent the default form submission for testing
-    // event.preventDefault();
-});
+function updateStatus(taskId, status) {
+    // This is the async implementation of updating the status
+    async function updateStatus(id, status) {
+        try {
+            const response = await fetch('/update', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id, status })
+            });
+        
+            if (response.ok) {
+                console.log("Status updated successfully");
+                // Update the status text in the UI without reloading the page
+                document.getElementById(`status-${id}

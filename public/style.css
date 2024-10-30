@@ -9,23 +9,23 @@ body {
 h1 {
   text-align: center;
   color: #333;
-  font-family: Arial, sans-serif;
   font-weight: bold;
 }
 
 #add-form {
   display: flex;
-  flex-direction: column; /* Stack inputs vertically */
+  flex-direction: column;
   align-items: center;
   margin: 20px 0;
 }
 
-#add-form input, #add-form button {
-  margin: 5px 0; /* Space vertically */
-  padding: 10px; /* Increased padding for better touch targets */
+#add-form input,
+#add-form button {
+  margin: 5px 0;
+  padding: 8px;
   font-size: 16px;
-  width: 100%; /* Full width on mobile */
-  max-width: 300px; /* Max width for better control */
+  width: 100%;
+  max-width: 300px;
 }
 
 #timetable-list {
@@ -33,14 +33,15 @@ h1 {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 100%;
 }
 
 .task {
   background-color: #fff;
   padding: 15px;
   margin: 10px 0;
-  width: 90%; /* Full width for better responsiveness */
-  max-width: 600px; /* Max width to maintain layout */
+  width: 90%;
+  max-width: 600px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -48,7 +49,7 @@ h1 {
 }
 
 .task:hover {
-  transform: scale(1.02); /* Slightly enlarges on hover */
+  transform: scale(1.02);
 }
 
 .task p {
@@ -57,34 +58,15 @@ h1 {
 
 .task form {
   display: flex;
-  flex-direction: column; /* Stack form elements vertically */
-  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.btn-primary, .btn-secondary {
-  width: 100%; /* Full width for buttons */
-  max-width: 300px; /* Max width for buttons */
-  padding: 10px; /* Consistent padding */
-}
-
-.btn-primary {
-  background-color: #ff9d00; /* Primary color */
-  color: #fff; /* Text color */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: bold;
-}
-
-.btn-primary:hover {
-  background-color: #cc7a00; /* Darker shade for hover */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-}
-
+.btn-primary,
 .btn-secondary {
-  background-color: #424eef; /* Secondary color */
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -94,28 +76,41 @@ h1 {
   font-weight: bold;
 }
 
+.btn-primary {
+  background-color: #ff9d00;
+}
+
+.btn-primary:hover {
+  background-color: #ff7800;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background-color: #424eef;
+}
+
 .btn-secondary:hover {
-  background-color: #353fed; /* Darker shade for hover */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  background-color: #3b3fd2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 600px) {
-  #add-form {
-      margin: 10px 0; /* Reduce margin for mobile */
-  }
-
-  #add-form input, #add-form button {
-      font-size: 14px; /* Slightly smaller font size */
-      padding: 8px; /* Adjust padding */
+  #timetable-list {
+    width: 100%;
   }
 
   .task {
-      width: 95%; /* Full width with a slight margin */
-      padding: 10px; /* Consistent padding for mobile */
+    width: 95%;
+    padding: 10px;
   }
 
   .task form {
-      flex-direction: column; /* Stack form elements vertically */
-      width: 100%; /* Full width for form */
+    flex-direction: column;
+    align-items: center;
   }
+}
+
+.task.active {
+  background-color: #e0ffe0;
+  border-color: #4caf50;
 }

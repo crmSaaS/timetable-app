@@ -6,6 +6,7 @@ const path = require('path');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use(express.json()); // This line enables JSON parsing for the app
 app.set('view engine', 'ejs');
 
 let timetable = [];
@@ -57,11 +58,8 @@ app.get('/', (req, res) => {
   });
 });
 
-
 app.post('/add', (req, res) => {
   const { subject, day, time } = req.body;
-
- 
 
   if (!validDays.has(day)) {
     return res.status(400).send("Invalid day input");
@@ -74,19 +72,12 @@ app.post('/add', (req, res) => {
   }
 
   const newTask = {
-    id : Date.now(),
+    id: Date.now(),
     subject,
     day,
     time,
     status: "scheduled"
   };
-
-
-
-  if (
-    newTask.day === "monday" || newTask.day ==="tuesday" || newTask.day ==="wednesday"||newTask.day === "thursday" || newTask.day ==="friday" || newTask.day ==="saturday"||newTask.day ==="sunday" || newTask.day === "Monday" || newTask.day ==="Tuesday" || newTask.day ==="Wednesday"||newTask.day === "Thursday" || newTask.day ==="Friday" || newTask.day ==="Saturday"||newTask.day ==="Sunday"  
-  ){
-      
 
   timetable.push(newTask);
 
@@ -98,7 +89,8 @@ app.post('/add', (req, res) => {
   });
 
   res.redirect('/');
-}});
+});
+
 app.post('/delete', (req, res) => {
   const dId = Number(req.body.id); // Convert the ID to a number
 
@@ -133,6 +125,7 @@ app.post('/delete', (req, res) => {
     }
   });
 });
+
 app.post('/update', (req, res) => {
   const { id, status } = req.body;
   const task = timetable.find(task => task.id == id);
@@ -147,7 +140,6 @@ app.post('/update', (req, res) => {
       }
     });
   }
-  
   
   res.redirect('/');
 });
