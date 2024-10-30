@@ -129,3 +129,8 @@ h1 {
   margin: 10px;
   box-sizing: border-box;
 }
+#day{
+  height: 45px;
+  width: 300px;
+
+}
