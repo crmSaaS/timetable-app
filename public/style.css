@@ -4,11 +4,12 @@ body {
   color: #333;
   margin: 0;
   padding: 0 20px;
+  background-color: rgba(10, 8, 8, 0.799);
 }
 
 h1 {
   text-align: center;
-  color: #333;
+  color: white;
   font-family: Arial, sans-serif;
   font-weight: bold;
 }
@@ -34,6 +35,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  
 }
 
 .task {
