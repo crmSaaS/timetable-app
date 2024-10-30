@@ -32,7 +32,11 @@
             <option value="canceled" <%= task.status === 'canceled' ? 'selected' : '' %>>Canceled</option>
           </select>
           <button type="submit" class="btn-secondary" onclick="alert('Message updated successfully!')">Update Status</button>
-          <button type="button" class="btn-secondary" onclick="alert('Message deleted!')">Delete</button>
+        </form>
+
+        <form action="/delete" method="POST">
+          <input type="hidden" name="id" value="<%= task.id %>">
+          <button type="submit" class="btn-secondary" onclick="alert('Message deleted!')">Delete</button>
         </form>
       </div>
     <% }) %>
@@ -49,6 +53,13 @@
           task.style.backgroundColor = 'yellow'; // Highlight the task
         }
       });
+    });
+    
+    const form = document.getElementById('timetableForm');
+    const submitButton = document.getElementById('submitButton');
+
+    form.addEventListener('submit', (event) => {
+      submitButton.disabled = true;
     });
   </script>
 </body>
